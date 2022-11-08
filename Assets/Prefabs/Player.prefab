@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 647239302}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Stack
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7458492922002043295}
   - component: {fileID: 7458492922002043294}
   - component: {fileID: 7458492922002043293}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Catch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7458492922464506595}
   - component: {fileID: 7458492922464506623}
   - component: {fileID: 7458492922464506594}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -174,11 +174,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7458492922464506622}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.1673365, y: 0.19302806, z: 0.9854331}
-  m_Center: {x: -0.014888526, y: -0.022884704, z: 0.41477108}
+  m_Size: {x: 3.1873007, y: 0.12902635, z: 0.98032}
+  m_Center: {x: 0.0015283824, y: 0.009116434, z: 0.41732764}
 --- !u!54 &7458492922464506623
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 7458492922674251428}
   - component: {fileID: 7458492922674251427}
   - component: {fileID: 7458492922674251426}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 7458492923097827804}
   - component: {fileID: 7458492923097827803}
   - component: {fileID: 7458492923097827802}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}

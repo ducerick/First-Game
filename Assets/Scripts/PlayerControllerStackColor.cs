@@ -54,7 +54,7 @@ public class PlayerControllerStackColor : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100) && transform.position.z - transform.localScale.z / 2 < hit.point.z && hit.point.z < transform.position.z + transform.localScale.z/2)
+        if (Physics.Raycast(ray, out hit, 100))
         {
             transform.position = Vector3.Lerp(transform.position, new Vector3(hit.point.x, transform.position.y, hit.point.z), _sideLerpSpeed * Time.deltaTime);
         }
@@ -64,23 +64,24 @@ public class PlayerControllerStackColor : MonoBehaviour
     {
         if (other.tag == "Pickup")
         {
-            Transform otherTranform = other.transform.parent;
-            Rigidbody otherRB = otherTranform.GetComponent<Rigidbody>();
-            otherRB.isKinematic = true;
-            other.enabled = false;
+            GameControllerStackColor.Instance.UpdateScore(other.GetComponent<PickupStackColor>().GetValue());
+
+            Transform otherTranform = other.transform;
+            Rigidbody otherRB = other.GetComponent<Rigidbody>();
+            otherRB.isKinematic = true;  // set no physics
+            other.enabled = false;  //set no collider (khong the va cham voi object khac)
             
             if (parentPickup == null)
             {
-                parentPickup = otherTranform;
-                parentPickup.position = _stackPosition.position;
-                parentPickup.parent = _stackPosition;
+                parentPickup = otherTranform;  // set parent has tranform of the otherTranform
+                parentPickup.position = _stackPosition.position;  // set cho gia tri _stackPosition dau tien vi gia tri _stackPositon lien tuc thay doi
+                parentPickup.parent = _stackPosition;  // set relative to parent 
             } else
             {
-                parentPickup.position += Vector3.up * (otherTranform.localScale.y);
-                otherTranform.position = _stackPosition.position;
-                otherTranform.parent = _stackPosition;
+                parentPickup.position += Vector3.up * (otherTranform.localScale.y); // dich chuyen vi tri cua parentPickup
+                otherTranform.position = _stackPosition.position;  // set otherTranform has  position of _stackPosition
+                otherTranform.parent = parentPickup;
             }
-
         }
     }
 }

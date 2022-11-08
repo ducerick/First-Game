@@ -18,6 +18,10 @@ public class PickupStackColor : MonoBehaviour
     void Update()
     {
 
-        
+    }
+
+    public int GetValue()
+    {
+        return _value;
     }
 }
