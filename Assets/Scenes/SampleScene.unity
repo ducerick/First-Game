@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 45374615}
   - component: {fileID: 45374616}
+  - component: {fileID: 45374617}
   m_Layer: 2
   m_Name: ColorWall
-  m_TagString: Untagged
+  m_TagString: ColorWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,8 +168,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: -0.5}
+  m_Size: {x: 1, y: 0.98710126, z: 1}
+  m_Center: {x: 0, y: 0.5902123, z: -0.5}
+--- !u!114 &45374617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45374614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ccfa0312258ca43a2bb09fd795e043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorWall: {r: 0, g: 0.52242804, b: 1, a: 0}
 --- !u!1001 &373123978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,12 +191,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 727560305583457382, guid: a96eba491572d574abe32c608616b2ee, type: 3}
-      propertyPath: _pickUpColor.g
+      propertyPath: _pickUpColor.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 727560305583457382, guid: a96eba491572d574abe32c608616b2ee, type: 3}
+      propertyPath: _pickUpColor.g
+      value: 0.52242804
+      objectReference: {fileID: 0}
+    - target: {fileID: 727560305583457382, guid: a96eba491572d574abe32c608616b2ee, type: 3}
       propertyPath: _pickUpColor.r
-      value: 0.2816975
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4543060083051354024, guid: a96eba491572d574abe32c608616b2ee, type: 3}
       propertyPath: m_Name
@@ -832,11 +850,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 727560305583457382, guid: a96eba491572d574abe32c608616b2ee, type: 3}
       propertyPath: _pickUpColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 727560305583457382, guid: a96eba491572d574abe32c608616b2ee, type: 3}
       propertyPath: _pickUpColor.r
-      value: 0.9511088
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4543060083051354024, guid: a96eba491572d574abe32c608616b2ee, type: 3}
       propertyPath: m_Name
@@ -950,10 +968,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959884799}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1959884802
@@ -1078,10 +1096,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 727560305583457382, guid: a96eba491572d574abe32c608616b2ee, type: 3}
-      propertyPath: _pickUpColor.b
-      value: 0.88730145
-      objectReference: {fileID: 0}
     - target: {fileID: 4543060083051354024, guid: a96eba491572d574abe32c608616b2ee, type: 3}
       propertyPath: m_Name
       value: Pickup
@@ -1186,6 +1200,18 @@ PrefabInstance:
     - target: {fileID: 7458492922464506593, guid: 6ba50649d9d003b4f935395734e34050, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458492922464506594, guid: 6ba50649d9d003b4f935395734e34050, type: 3}
+      propertyPath: _myColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458492922464506594, guid: 6ba50649d9d003b4f935395734e34050, type: 3}
+      propertyPath: _myColor.g
+      value: 0.52242804
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458492922464506594, guid: 6ba50649d9d003b4f935395734e34050, type: 3}
+      propertyPath: _myColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7458492922464506622, guid: 6ba50649d9d003b4f935395734e34050, type: 3}
       propertyPath: m_Name

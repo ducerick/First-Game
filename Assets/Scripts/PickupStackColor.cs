@@ -24,4 +24,9 @@ public class PickupStackColor : MonoBehaviour
     {
         return _value;
     }
+
+    public Color GetColor()
+    {
+        return _pickUpColor;
+    }
 }

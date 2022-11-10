@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerControllerStackColor : MonoBehaviour
 {
     [SerializeField] bool _isPlaying;
     [SerializeField] Renderer[] _myRends;
+
     [SerializeField] float _forwardSpeed;
     [SerializeField] Color _myColor;
     [SerializeField] float _sideLerpSpeed;
+
     Transform parentPickup;
     [SerializeField] Transform _stackPosition;
+
+    [SerializeField] double _forwardForce;
+    [SerializeField] double _forceAdd;
+    [SerializeField] double _forceReducer;
+    public static Action<double> _Click;
+    private bool _atEnd;
     private Rigidbody _myRB;
 
     // Start is called before the first frame update
@@ -60,11 +69,41 @@ public class PlayerControllerStackColor : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "ColorWall")
+        {
+            SetColor(other.transform.GetComponent<ColorWall>().GetColor());
+            Debug.Log(_myColor);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Pickup")
         {
-            GameControllerStackColor.Instance.UpdateScore(other.GetComponent<PickupStackColor>().GetValue());
+            Debug.Log(other.transform.GetComponent<PickupStackColor>().GetColor());
+            if (_myColor == other.transform.GetComponent<PickupStackColor>().GetColor())
+            {
+                GameControllerStackColor.Instance.UpdateScore(other.transform.GetComponent<PickupStackColor>().GetValue());
+            }
+            else
+            {
+                GameControllerStackColor.Instance.UpdateScore(other.transform.GetComponent<PickupStackColor>().GetValue() * -1);
+                Destroy(other.gameObject);
+                if (parentPickup != null)
+                {
+                    if (parentPickup.childCount> 1)
+                    {
+                        parentPickup.position -= Vector3.up * parentPickup.GetChild(parentPickup.childCount - 1).transform.localScale.y;
+                        Destroy(parentPickup.GetChild(parentPickup.childCount - 1).gameObject);
+                    } else
+                    {
+                        Destroy(parentPickup.gameObject);
+                    }
+                    return;
+                }
+            }
 
             Transform otherTranform = other.transform;
             Rigidbody otherRB = other.GetComponent<Rigidbody>();
